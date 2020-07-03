@@ -1,0 +1,47 @@
+{
+  "tab_cols": [
+    {
+      "Name": "loan_id",
+      "Type": "int",
+      "Comment": "",
+      "Parameters": {
+        "val": "true"
+      }
+    },
+    {
+      "Name": "account_id",
+      "Type": "int",
+      "Comment": ""
+    },
+    {
+      "Name": "date",
+      "Type": "string",
+      "Comment": ""
+    },
+    {
+      "Name": "amount",
+      "Type": "double",
+      "Comment": ""
+    },
+    {
+      "Name": "duration",
+      "Type": "int",
+      "Comment": ""
+    },
+    {
+      "Name": "payments",
+      "Type": "double",
+      "Comment": ""
+    },
+    {
+      "Name": "status",
+      "Type": "string",
+      "Comment": ""
+    }
+  ],
+  "tab_param": {
+    "classification": "parquet",
+    "DatasetName": "Loan CRM"
+  },
+  "tab_description":"Crm Table for loan Domain"
+}

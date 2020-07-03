@@ -1,0 +1,25 @@
+version: 0.2
+
+phases:
+
+  install:
+    commands:
+      - "apt install unzip -y"
+      - "wget https://releases.hashicorp.com/terraform/0.12.26/terraform_0.12.26_linux_amd64.zip"
+      - "unzip terraform_0.12.26_linux_amd64.zip"
+      - "mv terraform /usr/local/bin/"
+  pre_build:
+    commands:
+      - cd templates      
+      - terraform init -backend-config="bucket=$bucket_name" -backend-config="key=$object_key" -backend-config="region=$bucket_region" -backend-config="dynamodb_table=$dynamodb_table" -backend-config="kms_key_id=$kms_key_arn" -backend-config="role_arn=$role_arn" -backend-config="acl=bucket-owner-full-control" -backend-config="session_name=assume_master_role"
+
+  build:
+    commands:
+      - terraform plan --var-file=../env/dev/terraform.tfvars -no-color
+  post_build:
+    commands:
+<<<<<<< Updated upstream
+      - terraform destroy --var-file=../dev/terraform.tfvars --auto-approve -no-color
+=======
+      - terraform apply --var-file=../env/dev/terraform.tfvars --auto-approve -no-color
+>>>>>>> Stashed changes
